@@ -8,8 +8,8 @@ const AWS = require('aws-sdk');
 // Set the region 
 AWS.config.update({region: 'REGION'});
 
-var roleToAssume = {RoleArn: 'arn:aws:iam::697042039271:role/sts-admin',
-                    RoleSessionName: 'sts-admin',
+var roleToAssume = {RoleArn: 'arn:aws:iam::697042039271:role/sts-ec2',
+                    RoleSessionName: 'sts-ec2',
                     DurationSeconds: 900,};
 var roleCreds;
 
@@ -38,7 +38,7 @@ function stsGetCallerIdentity(creds) {
             console.log(err, err.stack);
         }
         else {
-            console.log(data.Arn);
+            console.log(roleCreds);
         }
     });    
 }
